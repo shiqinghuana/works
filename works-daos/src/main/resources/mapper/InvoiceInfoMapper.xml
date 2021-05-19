@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.territory.worksdaos.mapper.InvoiceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.territory.worksdaos.entity.InvoiceInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="contract_id" jdbcType="VARCHAR" property="contractId" />
+    <result column="invoice_id" jdbcType="VARCHAR" property="invoiceId" />
+    <result column="invoice_data" jdbcType="DATE" property="invoiceData" />
+    <result column="invoice_type" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="invoice_money" jdbcType="BIGINT" property="invoiceMoney" />
+    <result column="invoice_tax" jdbcType="REAL" property="invoiceTax" />
+    <result column="mark" jdbcType="VARCHAR" property="mark" />
+    <result column="delete" jdbcType="INTEGER" property="delete" />
+    <result column="updata_time" jdbcType="TIMESTAMP" property="updataTime" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="column_12" jdbcType="INTEGER" property="column12" />
+    <result column="column_11" jdbcType="INTEGER" property="column11" />
+    <result column="column_10" jdbcType="INTEGER" property="column10" />
+    <result column="column_9" jdbcType="INTEGER" property="column9" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, contract_id, invoice_id, invoice_data, invoice_type, invoice_money, invoice_tax, 
+    mark, `delete`, updata_time, insert_time, column_12, column_11, column_10, column_9
+  </sql>
+  <select id="selectByExample" parameterType="com.territory.worksdaos.entity.InvoiceInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from works_invoice_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from works_invoice_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from works_invoice_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.territory.worksdaos.entity.InvoiceInfoExample">
+    delete from works_invoice_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.territory.worksdaos.entity.InvoiceInfo">
+    insert into works_invoice_info (id, contract_id, invoice_id, 
+      invoice_data, invoice_type, invoice_money, 
+      invoice_tax, mark, `delete`, 
+      updata_time, insert_time, column_12, 
+      column_11, column_10, column_9
+      )
+    values (#{id,jdbcType=INTEGER}, #{contractId,jdbcType=VARCHAR}, #{invoiceId,jdbcType=VARCHAR}, 
+      #{invoiceData,jdbcType=DATE}, #{invoiceType,jdbcType=VARCHAR}, #{invoiceMoney,jdbcType=BIGINT}, 
+      #{invoiceTax,jdbcType=REAL}, #{mark,jdbcType=VARCHAR}, #{delete,jdbcType=INTEGER}, 
+      #{updataTime,jdbcType=TIMESTAMP}, #{insertTime,jdbcType=TIMESTAMP}, #{column12,jdbcType=INTEGER}, 
+      #{column11,jdbcType=INTEGER}, #{column10,jdbcType=INTEGER}, #{column9,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.territory.worksdaos.entity.InvoiceInfo">
+    insert into works_invoice_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="contractId != null">
+        contract_id,
+      </if>
+      <if test="invoiceId != null">
+        invoice_id,
+      </if>
+      <if test="invoiceData != null">
+        invoice_data,
+      </if>
+      <if test="invoiceType != null">
+        invoice_type,
+      </if>
+      <if test="invoiceMoney != null">
+        invoice_money,
+      </if>
+      <if test="invoiceTax != null">
+        invoice_tax,
+      </if>
+      <if test="mark != null">
+        mark,
+      </if>
+      <if test="delete != null">
+        `delete`,
+      </if>
+      <if test="updataTime != null">
+        updata_time,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="column12 != null">
+        column_12,
+      </if>
+      <if test="column11 != null">
+        column_11,
+      </if>
+      <if test="column10 != null">
+        column_10,
+      </if>
+      <if test="column9 != null">
+        column_9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null">
+        #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceData != null">
+        #{invoiceData,jdbcType=DATE},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMoney != null">
+        #{invoiceMoney,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceTax != null">
+        #{invoiceTax,jdbcType=REAL},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="delete != null">
+        #{delete,jdbcType=INTEGER},
+      </if>
+      <if test="updataTime != null">
+        #{updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="column12 != null">
+        #{column12,jdbcType=INTEGER},
+      </if>
+      <if test="column11 != null">
+        #{column11,jdbcType=INTEGER},
+      </if>
+      <if test="column10 != null">
+        #{column10,jdbcType=INTEGER},
+      </if>
+      <if test="column9 != null">
+        #{column9,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.territory.worksdaos.entity.InvoiceInfoExample" resultType="java.lang.Long">
+    select count(*) from works_invoice_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update works_invoice_info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.contractId != null">
+        contract_id = #{record.contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceId != null">
+        invoice_id = #{record.invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceData != null">
+        invoice_data = #{record.invoiceData,jdbcType=DATE},
+      </if>
+      <if test="record.invoiceType != null">
+        invoice_type = #{record.invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceMoney != null">
+        invoice_money = #{record.invoiceMoney,jdbcType=BIGINT},
+      </if>
+      <if test="record.invoiceTax != null">
+        invoice_tax = #{record.invoiceTax,jdbcType=REAL},
+      </if>
+      <if test="record.mark != null">
+        mark = #{record.mark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.delete != null">
+        `delete` = #{record.delete,jdbcType=INTEGER},
+      </if>
+      <if test="record.updataTime != null">
+        updata_time = #{record.updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.insertTime != null">
+        insert_time = #{record.insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.column12 != null">
+        column_12 = #{record.column12,jdbcType=INTEGER},
+      </if>
+      <if test="record.column11 != null">
+        column_11 = #{record.column11,jdbcType=INTEGER},
+      </if>
+      <if test="record.column10 != null">
+        column_10 = #{record.column10,jdbcType=INTEGER},
+      </if>
+      <if test="record.column9 != null">
+        column_9 = #{record.column9,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update works_invoice_info
+    set id = #{record.id,jdbcType=INTEGER},
+      contract_id = #{record.contractId,jdbcType=VARCHAR},
+      invoice_id = #{record.invoiceId,jdbcType=VARCHAR},
+      invoice_data = #{record.invoiceData,jdbcType=DATE},
+      invoice_type = #{record.invoiceType,jdbcType=VARCHAR},
+      invoice_money = #{record.invoiceMoney,jdbcType=BIGINT},
+      invoice_tax = #{record.invoiceTax,jdbcType=REAL},
+      mark = #{record.mark,jdbcType=VARCHAR},
+      `delete` = #{record.delete,jdbcType=INTEGER},
+      updata_time = #{record.updataTime,jdbcType=TIMESTAMP},
+      insert_time = #{record.insertTime,jdbcType=TIMESTAMP},
+      column_12 = #{record.column12,jdbcType=INTEGER},
+      column_11 = #{record.column11,jdbcType=INTEGER},
+      column_10 = #{record.column10,jdbcType=INTEGER},
+      column_9 = #{record.column9,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.territory.worksdaos.entity.InvoiceInfo">
+    update works_invoice_info
+    <set>
+      <if test="contractId != null">
+        contract_id = #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        invoice_id = #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceData != null">
+        invoice_data = #{invoiceData,jdbcType=DATE},
+      </if>
+      <if test="invoiceType != null">
+        invoice_type = #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMoney != null">
+        invoice_money = #{invoiceMoney,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceTax != null">
+        invoice_tax = #{invoiceTax,jdbcType=REAL},
+      </if>
+      <if test="mark != null">
+        mark = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="delete != null">
+        `delete` = #{delete,jdbcType=INTEGER},
+      </if>
+      <if test="updataTime != null">
+        updata_time = #{updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="column12 != null">
+        column_12 = #{column12,jdbcType=INTEGER},
+      </if>
+      <if test="column11 != null">
+        column_11 = #{column11,jdbcType=INTEGER},
+      </if>
+      <if test="column10 != null">
+        column_10 = #{column10,jdbcType=INTEGER},
+      </if>
+      <if test="column9 != null">
+        column_9 = #{column9,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.territory.worksdaos.entity.InvoiceInfo">
+    update works_invoice_info
+    set contract_id = #{contractId,jdbcType=VARCHAR},
+      invoice_id = #{invoiceId,jdbcType=VARCHAR},
+      invoice_data = #{invoiceData,jdbcType=DATE},
+      invoice_type = #{invoiceType,jdbcType=VARCHAR},
+      invoice_money = #{invoiceMoney,jdbcType=BIGINT},
+      invoice_tax = #{invoiceTax,jdbcType=REAL},
+      mark = #{mark,jdbcType=VARCHAR},
+      `delete` = #{delete,jdbcType=INTEGER},
+      updata_time = #{updataTime,jdbcType=TIMESTAMP},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      column_12 = #{column12,jdbcType=INTEGER},
+      column_11 = #{column11,jdbcType=INTEGER},
+      column_10 = #{column10,jdbcType=INTEGER},
+      column_9 = #{column9,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

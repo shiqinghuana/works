@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.territory.worksdaos.mapper.WorksContractMapper">
+  <resultMap id="BaseResultMap" type="com.territory.worksdaos.entity.WorksContract">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="contract_name" jdbcType="VARCHAR" property="contractName" />
+    <result column="contract_code" jdbcType="VARCHAR" property="contractCode" />
+    <result column="ourself_company" jdbcType="INTEGER" property="ourselfCompany" />
+    <result column="other_company" jdbcType="INTEGER" property="otherCompany" />
+    <result column="contract_mark" jdbcType="VARCHAR" property="contractMark" />
+    <result column="contract_attachment" jdbcType="VARCHAR" property="contractAttachment" />
+    <result column="signing_data" jdbcType="DATE" property="signingData" />
+    <result column="signing_money" jdbcType="BIGINT" property="signingMoney" />
+    <result column="invoice" jdbcType="BIT" property="invoice" />
+    <result column="cost_department" jdbcType="VARCHAR" property="costDepartment" />
+    <result column="updata_time" jdbcType="TIMESTAMP" property="updataTime" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="delete" jdbcType="INTEGER" property="delete" />
+    <result column="column_12" jdbcType="INTEGER" property="column12" />
+    <result column="column_11" jdbcType="INTEGER" property="column11" />
+    <result column="column_10" jdbcType="INTEGER" property="column10" />
+    <result column="column_9" jdbcType="INTEGER" property="column9" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, contract_name, contract_code, ourself_company, other_company, contract_mark, 
+    contract_attachment, signing_data, signing_money, invoice, cost_department, updata_time, 
+    insert_time, `delete`, column_12, column_11, column_10, column_9
+  </sql>
+  <select id="selectByExample" parameterType="com.territory.worksdaos.entity.WorksContractExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from works_contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from works_contract
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from works_contract
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.territory.worksdaos.entity.WorksContractExample">
+    delete from works_contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.territory.worksdaos.entity.WorksContract">
+    insert into works_contract (id, contract_name, contract_code, 
+      ourself_company, other_company, contract_mark, 
+      contract_attachment, signing_data, signing_money, 
+      invoice, cost_department, updata_time, 
+      insert_time, `delete`, column_12, 
+      column_11, column_10, column_9
+      )
+    values (#{id,jdbcType=INTEGER}, #{contractName,jdbcType=VARCHAR}, #{contractCode,jdbcType=VARCHAR}, 
+      #{ourselfCompany,jdbcType=INTEGER}, #{otherCompany,jdbcType=INTEGER}, #{contractMark,jdbcType=VARCHAR}, 
+      #{contractAttachment,jdbcType=VARCHAR}, #{signingData,jdbcType=DATE}, #{signingMoney,jdbcType=BIGINT}, 
+      #{invoice,jdbcType=BIT}, #{costDepartment,jdbcType=VARCHAR}, #{updataTime,jdbcType=TIMESTAMP}, 
+      #{insertTime,jdbcType=TIMESTAMP}, #{delete,jdbcType=INTEGER}, #{column12,jdbcType=INTEGER}, 
+      #{column11,jdbcType=INTEGER}, #{column10,jdbcType=INTEGER}, #{column9,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.territory.worksdaos.entity.WorksContract">
+    insert into works_contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="contractName != null">
+        contract_name,
+      </if>
+      <if test="contractCode != null">
+        contract_code,
+      </if>
+      <if test="ourselfCompany != null">
+        ourself_company,
+      </if>
+      <if test="otherCompany != null">
+        other_company,
+      </if>
+      <if test="contractMark != null">
+        contract_mark,
+      </if>
+      <if test="contractAttachment != null">
+        contract_attachment,
+      </if>
+      <if test="signingData != null">
+        signing_data,
+      </if>
+      <if test="signingMoney != null">
+        signing_money,
+      </if>
+      <if test="invoice != null">
+        invoice,
+      </if>
+      <if test="costDepartment != null">
+        cost_department,
+      </if>
+      <if test="updataTime != null">
+        updata_time,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="delete != null">
+        `delete`,
+      </if>
+      <if test="column12 != null">
+        column_12,
+      </if>
+      <if test="column11 != null">
+        column_11,
+      </if>
+      <if test="column10 != null">
+        column_10,
+      </if>
+      <if test="column9 != null">
+        column_9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="contractName != null">
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCode != null">
+        #{contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ourselfCompany != null">
+        #{ourselfCompany,jdbcType=INTEGER},
+      </if>
+      <if test="otherCompany != null">
+        #{otherCompany,jdbcType=INTEGER},
+      </if>
+      <if test="contractMark != null">
+        #{contractMark,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAttachment != null">
+        #{contractAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="signingData != null">
+        #{signingData,jdbcType=DATE},
+      </if>
+      <if test="signingMoney != null">
+        #{signingMoney,jdbcType=BIGINT},
+      </if>
+      <if test="invoice != null">
+        #{invoice,jdbcType=BIT},
+      </if>
+      <if test="costDepartment != null">
+        #{costDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="updataTime != null">
+        #{updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delete != null">
+        #{delete,jdbcType=INTEGER},
+      </if>
+      <if test="column12 != null">
+        #{column12,jdbcType=INTEGER},
+      </if>
+      <if test="column11 != null">
+        #{column11,jdbcType=INTEGER},
+      </if>
+      <if test="column10 != null">
+        #{column10,jdbcType=INTEGER},
+      </if>
+      <if test="column9 != null">
+        #{column9,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.territory.worksdaos.entity.WorksContractExample" resultType="java.lang.Long">
+    select count(*) from works_contract
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update works_contract
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.contractName != null">
+        contract_name = #{record.contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractCode != null">
+        contract_code = #{record.contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ourselfCompany != null">
+        ourself_company = #{record.ourselfCompany,jdbcType=INTEGER},
+      </if>
+      <if test="record.otherCompany != null">
+        other_company = #{record.otherCompany,jdbcType=INTEGER},
+      </if>
+      <if test="record.contractMark != null">
+        contract_mark = #{record.contractMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractAttachment != null">
+        contract_attachment = #{record.contractAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signingData != null">
+        signing_data = #{record.signingData,jdbcType=DATE},
+      </if>
+      <if test="record.signingMoney != null">
+        signing_money = #{record.signingMoney,jdbcType=BIGINT},
+      </if>
+      <if test="record.invoice != null">
+        invoice = #{record.invoice,jdbcType=BIT},
+      </if>
+      <if test="record.costDepartment != null">
+        cost_department = #{record.costDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updataTime != null">
+        updata_time = #{record.updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.insertTime != null">
+        insert_time = #{record.insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.delete != null">
+        `delete` = #{record.delete,jdbcType=INTEGER},
+      </if>
+      <if test="record.column12 != null">
+        column_12 = #{record.column12,jdbcType=INTEGER},
+      </if>
+      <if test="record.column11 != null">
+        column_11 = #{record.column11,jdbcType=INTEGER},
+      </if>
+      <if test="record.column10 != null">
+        column_10 = #{record.column10,jdbcType=INTEGER},
+      </if>
+      <if test="record.column9 != null">
+        column_9 = #{record.column9,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update works_contract
+    set id = #{record.id,jdbcType=INTEGER},
+      contract_name = #{record.contractName,jdbcType=VARCHAR},
+      contract_code = #{record.contractCode,jdbcType=VARCHAR},
+      ourself_company = #{record.ourselfCompany,jdbcType=INTEGER},
+      other_company = #{record.otherCompany,jdbcType=INTEGER},
+      contract_mark = #{record.contractMark,jdbcType=VARCHAR},
+      contract_attachment = #{record.contractAttachment,jdbcType=VARCHAR},
+      signing_data = #{record.signingData,jdbcType=DATE},
+      signing_money = #{record.signingMoney,jdbcType=BIGINT},
+      invoice = #{record.invoice,jdbcType=BIT},
+      cost_department = #{record.costDepartment,jdbcType=VARCHAR},
+      updata_time = #{record.updataTime,jdbcType=TIMESTAMP},
+      insert_time = #{record.insertTime,jdbcType=TIMESTAMP},
+      `delete` = #{record.delete,jdbcType=INTEGER},
+      column_12 = #{record.column12,jdbcType=INTEGER},
+      column_11 = #{record.column11,jdbcType=INTEGER},
+      column_10 = #{record.column10,jdbcType=INTEGER},
+      column_9 = #{record.column9,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.territory.worksdaos.entity.WorksContract">
+    update works_contract
+    <set>
+      <if test="contractName != null">
+        contract_name = #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCode != null">
+        contract_code = #{contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ourselfCompany != null">
+        ourself_company = #{ourselfCompany,jdbcType=INTEGER},
+      </if>
+      <if test="otherCompany != null">
+        other_company = #{otherCompany,jdbcType=INTEGER},
+      </if>
+      <if test="contractMark != null">
+        contract_mark = #{contractMark,jdbcType=VARCHAR},
+      </if>
+      <if test="contractAttachment != null">
+        contract_attachment = #{contractAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="signingData != null">
+        signing_data = #{signingData,jdbcType=DATE},
+      </if>
+      <if test="signingMoney != null">
+        signing_money = #{signingMoney,jdbcType=BIGINT},
+      </if>
+      <if test="invoice != null">
+        invoice = #{invoice,jdbcType=BIT},
+      </if>
+      <if test="costDepartment != null">
+        cost_department = #{costDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="updataTime != null">
+        updata_time = #{updataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delete != null">
+        `delete` = #{delete,jdbcType=INTEGER},
+      </if>
+      <if test="column12 != null">
+        column_12 = #{column12,jdbcType=INTEGER},
+      </if>
+      <if test="column11 != null">
+        column_11 = #{column11,jdbcType=INTEGER},
+      </if>
+      <if test="column10 != null">
+        column_10 = #{column10,jdbcType=INTEGER},
+      </if>
+      <if test="column9 != null">
+        column_9 = #{column9,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.territory.worksdaos.entity.WorksContract">
+    update works_contract
+    set contract_name = #{contractName,jdbcType=VARCHAR},
+      contract_code = #{contractCode,jdbcType=VARCHAR},
+      ourself_company = #{ourselfCompany,jdbcType=INTEGER},
+      other_company = #{otherCompany,jdbcType=INTEGER},
+      contract_mark = #{contractMark,jdbcType=VARCHAR},
+      contract_attachment = #{contractAttachment,jdbcType=VARCHAR},
+      signing_data = #{signingData,jdbcType=DATE},
+      signing_money = #{signingMoney,jdbcType=BIGINT},
+      invoice = #{invoice,jdbcType=BIT},
+      cost_department = #{costDepartment,jdbcType=VARCHAR},
+      updata_time = #{updataTime,jdbcType=TIMESTAMP},
+      insert_time = #{insertTime,jdbcType=TIMESTAMP},
+      `delete` = #{delete,jdbcType=INTEGER},
+      column_12 = #{column12,jdbcType=INTEGER},
+      column_11 = #{column11,jdbcType=INTEGER},
+      column_10 = #{column10,jdbcType=INTEGER},
+      column_9 = #{column9,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
