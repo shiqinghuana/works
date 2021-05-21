@@ -25,7 +25,6 @@ import java.util.Map;
 
 @Transactional
 @Service
-
 public class CompanyServiceImpl extends BaseService implements CompanyService  {
 
 
@@ -150,12 +149,12 @@ public class CompanyServiceImpl extends BaseService implements CompanyService  {
         // 此处查询所有公司信息
 
         CompanyExample companyExample = new CompanyExample();
-        Integer current = type.getInteger("current");
+        Integer current = type.getInteger("current") ;
+        current = current==null?1:current;
         Integer pageSize = type.getInteger("pageSize");
+        pageSize = pageSize==null?10:pageSize;
         Integer start = (current-1)*pageSize;
-
         companyExample.setLimit(String.valueOf(start),String.valueOf(pageSize));
-
         CompanyExample.Criteria or = companyExample.or();
         or.andDeleteEqualTo(0);
         String type1 = type.getString("type");
@@ -170,7 +169,6 @@ public class CompanyServiceImpl extends BaseService implements CompanyService  {
 
         List<Company> companies = companyMapper.selectByExample(companyExample);
         return companies;
-
     }
 
 }
