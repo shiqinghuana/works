@@ -15,21 +15,17 @@ import com.territory.worksservice.exception.code.BaseResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 @Transactional
 @Service
 public class CompanyServiceImpl extends BaseService implements CompanyService  {
 
-
     final CompanyMapper companyMapper;
-
 
     final CompanyBackInfoMapper companyBackInfo;
 
@@ -149,6 +145,8 @@ public class CompanyServiceImpl extends BaseService implements CompanyService  {
         // 此处查询所有公司信息
 
         CompanyExample companyExample = new CompanyExample();
+        companyExample.setOrderByClause("id DESC");
+
         Integer current = type.getInteger("current") ;
         current = current==null?1:current;
         Integer pageSize = type.getInteger("pageSize");

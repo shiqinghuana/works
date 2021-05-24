@@ -2,15 +2,21 @@ package com.territory.worksdaos.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 
+
+@Data
 @ApiModel(value = "公司相关信息")
 public class Company implements Serializable {
 
+    public String ids;
     @ApiModelProperty(value = "主键id")
     private Integer id;
 
@@ -33,6 +39,9 @@ public class Company implements Serializable {
     private Long insertTime;
     @ApiModelProperty(value = "是否删除 0 否 1是")
     private Integer delete;
+    @ApiModelProperty(value = "文件列表")
+    private String fileList;
+
 
     private Integer column12;
 
@@ -40,9 +49,13 @@ public class Company implements Serializable {
 
     private Integer column10;
 
-    private Integer column9;
+    public String getIds() {
+        return ids;
+    }
 
-    private static final long serialVersionUID = 1L;
+    public void setIds(String ids) {
+        this.ids = ids;
+    }
 
     public Integer getId() {
         return id;
@@ -57,7 +70,7 @@ public class Company implements Serializable {
     }
 
     public void setCompanyName(String companyName) {
-        this.companyName = companyName == null ? null : companyName.trim();
+        this.companyName = companyName;
     }
 
     public String getCompanyAddr() {
@@ -65,7 +78,7 @@ public class Company implements Serializable {
     }
 
     public void setCompanyAddr(String companyAddr) {
-        this.companyAddr = companyAddr == null ? null : companyAddr.trim();
+        this.companyAddr = companyAddr;
     }
 
     public String getCompanyPhone() {
@@ -73,7 +86,7 @@ public class Company implements Serializable {
     }
 
     public void setCompanyPhone(String companyPhone) {
-        this.companyPhone = companyPhone == null ? null : companyPhone.trim();
+        this.companyPhone = companyPhone;
     }
 
     public String getMark() {
@@ -81,7 +94,7 @@ public class Company implements Serializable {
     }
 
     public void setMark(String mark) {
-        this.mark = mark == null ? null : mark.trim();
+        this.mark = mark;
     }
 
     public String getType() {
@@ -89,7 +102,7 @@ public class Company implements Serializable {
     }
 
     public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+        this.type = type;
     }
 
     public Long getUpdataTime() {
@@ -116,6 +129,14 @@ public class Company implements Serializable {
         this.delete = delete;
     }
 
+    public String getFileList() {
+        return fileList;
+    }
+
+    public void setFileList(String fileList) {
+        this.fileList = fileList;
+    }
+
     public Integer getColumn12() {
         return column12;
     }
@@ -140,13 +161,13 @@ public class Company implements Serializable {
         this.column10 = column10;
     }
 
-    public Integer getColumn9() {
-        return column9;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setColumn9(Integer column9) {
-        this.column9 = column9;
-    }
+    private static final long serialVersionUID = 1L;
+
+
 
     @Override
     public String toString() {
@@ -166,7 +187,7 @@ public class Company implements Serializable {
         sb.append(", column12=").append(column12);
         sb.append(", column11=").append(column11);
         sb.append(", column10=").append(column10);
-        sb.append(", column9=").append(column9);
+        sb.append(", fileList=").append(fileList);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -14,7 +14,7 @@
     <result column="column_12" jdbcType="INTEGER" property="column12" />
     <result column="column_11" jdbcType="INTEGER" property="column11" />
     <result column="column_10" jdbcType="INTEGER" property="column10" />
-    <result column="column_9" jdbcType="INTEGER" property="column9" />
+    <result column="file_list" jdbcType="VARCHAR" property="fileList" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -76,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, company_name, company_addr, company_phone, mark, `type`, updata_time, insert_time, 
-    `delete`, column_12, column_11, column_10, column_9
+    `delete`, column_12, column_11, column_10, file_list
   </sql>
   <select id="selectByExample" parameterType="com.territory.worksdaos.entity.CompanyExample" resultMap="BaseResultMap">
     select
@@ -117,13 +117,13 @@
     insert into works_company (id, company_name, company_addr, 
       company_phone, mark, `type`, 
       updata_time, insert_time, `delete`, 
-      column_12, column_11, column_10, 
-      column_9)
+      column_12, column_11, column_10,
+    file_list)
     values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, 
       #{companyPhone,jdbcType=VARCHAR}, #{mark,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
       #{updataTime,jdbcType=BIGINT}, #{insertTime,jdbcType=BIGINT}, #{delete,jdbcType=INTEGER},
       #{column12,jdbcType=INTEGER}, #{column11,jdbcType=INTEGER}, #{column10,jdbcType=INTEGER}, 
-      #{column9,jdbcType=INTEGER})
+      #{fileList,jdbcType=VARCHAR})
     <selectKey order="AFTER" keyProperty="id" resultType="java.lang.Integer">
       select last_insert_id()
     </selectKey>
@@ -168,8 +168,8 @@
       <if test="column10 != null">
         column_10,
       </if>
-      <if test="column9 != null">
-        column_9,
+      <if test="file_list != null">
+        file_list,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -260,8 +260,8 @@
       <if test="record.column10 != null">
         column_10 = #{record.column10,jdbcType=INTEGER},
       </if>
-      <if test="record.column9 != null">
-        column_9 = #{record.column9,jdbcType=INTEGER},
+      <if test="record.fileList != null">
+        file_list = #{record.fileList,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -282,7 +282,7 @@
       column_12 = #{record.column12,jdbcType=INTEGER},
       column_11 = #{record.column11,jdbcType=INTEGER},
       column_10 = #{record.column10,jdbcType=INTEGER},
-      column_9 = #{record.column9,jdbcType=INTEGER}
+    file_list = #{record.fileList,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -323,8 +323,8 @@
       <if test="column10 != null">
         column_10 = #{column10,jdbcType=INTEGER},
       </if>
-      <if test="column9 != null">
-        column_9 = #{column9,jdbcType=INTEGER},
+      <if test="fileList != null">
+        file_list = #{fileList,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -342,7 +342,7 @@
       column_12 = #{column12,jdbcType=INTEGER},
       column_11 = #{column11,jdbcType=INTEGER},
       column_10 = #{column10,jdbcType=INTEGER},
-      column_9 = #{column9,jdbcType=INTEGER}
+      file_list = #{fileList,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER} and `delete`=0
   </update>
 </mapper>
