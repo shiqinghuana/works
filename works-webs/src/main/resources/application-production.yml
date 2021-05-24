@@ -68,4 +68,9 @@ swagger2:
   enable: true
 
 
+oss:
+  endpoint: "oss-accelerate.aliyuncs.com"
+  accessKeyId: "LTAI5tLw5TZCi1zoNJJ2Z6uY"
+  accessKeySecret: "MOTEWvkRKIjiSNOGRKs3FhsSY0jTXF"
+  buckName: "works-oss"
 
