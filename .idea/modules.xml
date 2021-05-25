@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/works.iml" filepath="$PROJECT_DIR$/works.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-client/works-client.iml" filepath="$PROJECT_DIR$/works-client/works-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-common/works-common.iml" filepath="$PROJECT_DIR$/works-common/works-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-dao/works-dao.iml" filepath="$PROJECT_DIR$/works-dao/works-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-daos/works-daos.iml" filepath="$PROJECT_DIR$/works-daos/works-daos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-service/works-service.iml" filepath="$PROJECT_DIR$/works-service/works-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-services/works-services.iml" filepath="$PROJECT_DIR$/works-services/works-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-web/works-web.iml" filepath="$PROJECT_DIR$/works-web/works-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/works-webs/works-webs.iml" filepath="$PROJECT_DIR$/works-webs/works-webs.iml" />
+    </modules>
+  </component>
+</project>

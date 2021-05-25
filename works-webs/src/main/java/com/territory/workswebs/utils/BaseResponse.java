@@ -1,8 +1,8 @@
 package com.territory.workswebs.utils;
 
 
-import com.territory.worksservice.exception.code.BaseResponseCode;
-import com.territory.worksservice.exception.code.ResponseCodeInterface;
+import com.territory.workswebs.code.BaseResponseCode;
+import com.territory.workswebs.code.ResponseCodeInterface;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -56,7 +56,7 @@ public class BaseResponse <T>{
     }
 
     public BaseResponse() {
-        this.code=BaseResponseCode.SUCCESS.getCode();
+        this.code= BaseResponseCode.SUCCESS.getCode();
         this.msg=BaseResponseCode.SUCCESS.getMsg();
         this.data=null;
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.territory.worksdaos.mapper.CompanyBackInfoMapper">
-  <resultMap id="BaseResultMap" type="com.territory.worksdaos.entity.CompanyBackInfo">
+  <resultMap id="BaseResultMap" type="com.territory.client.entity.CompanyBackInfo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="company_id" jdbcType="VARCHAR" property="companyId" />
     <result column="back_name" jdbcType="VARCHAR" property="backName" />
@@ -79,7 +79,7 @@
     id, company_id, back_name, branch_back_name, card_name, card_id, mark, `delete`, 
     updata_time, insert_time, column_12, column_11, column_10, column_9
   </sql>
-  <select id="selectByExample" parameterType="com.territory.worksdaos.entity.CompanyBackInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.territory.client.entity.CompanyBackInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -104,13 +104,13 @@
     delete from works_company_back_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.territory.worksdaos.entity.CompanyBackInfoExample">
+  <delete id="deleteByExample" parameterType="com.territory.client.entity.CompanyBackInfoExample">
     delete from works_company_back_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.territory.worksdaos.entity.CompanyBackInfo">
+  <insert id="insert" parameterType="com.territory.client.entity.CompanyBackInfo">
     insert into works_company_back_info (id, company_id, back_name, 
       branch_back_name, card_name, card_id, 
       mark, `delete`, updata_time, 
@@ -125,7 +125,7 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
-  <insert id="insertSelective" parameterType="com.territory.worksdaos.entity.CompanyBackInfo" >
+  <insert id="insertSelective" parameterType="com.territory.client.entity.CompanyBackInfo" >
     insert into works_company_back_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -219,7 +219,7 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
-  <select id="countByExample" parameterType="com.territory.worksdaos.entity.CompanyBackInfoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.territory.client.entity.CompanyBackInfoExample" resultType="java.lang.Long">
     select count(*) from works_company_back_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -295,7 +295,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.territory.worksdaos.entity.CompanyBackInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.territory.client.entity.CompanyBackInfo">
     update works_company_back_info
     <set>
       <if test="companyId != null">
@@ -340,7 +340,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.territory.worksdaos.entity.CompanyBackInfo">
+  <update id="updateByPrimaryKey" parameterType="com.territory.client.entity.CompanyBackInfo">
     update works_company_back_info
     set company_id = #{companyId,jdbcType=VARCHAR},
       back_name = #{backName,jdbcType=VARCHAR},

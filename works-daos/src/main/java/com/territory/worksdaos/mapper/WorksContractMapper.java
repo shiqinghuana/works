@@ -1,7 +1,7 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.WorksContract;
-import com.territory.worksdaos.entity.WorksContractExample;
+import com.territory.client.entity.WorksContract;
+import com.territory.client.entity.WorksContractExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

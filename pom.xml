@@ -21,6 +21,7 @@
         <module>works-services</module>
         <module>works-webs</module>
         <module>works-daos</module>
+        <module>works-client</module>
     </modules>
 
 
@@ -52,7 +53,11 @@
                     <artifactId>works-services</artifactId>
                     <version>${project.version}</version>
                 </dependency>
-
+                <dependency>
+                    <groupId>com.territory</groupId>
+                    <artifactId>works-client</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
 
 
                 <dependency>
@@ -186,6 +191,29 @@
                     <groupId>com.aliyun.oss</groupId>
                     <artifactId>aliyun-sdk-oss</artifactId>
                     <version>3.10.2</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.alibaba.boot</groupId>
+                    <artifactId>dubbo-spring-boot-starter</artifactId>
+                    <version>0.2.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.101tec</groupId>
+                    <artifactId>zkclient</artifactId>
+                    <version>0.11</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.zookeeper</groupId>
+                    <artifactId>zookeeper</artifactId>
+                    <version>3.4.13</version>
+                    <type>pom</type>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-log4j12</artifactId>
+                        </exclusion>
+                    </exclusions>
                 </dependency>
 
             </dependencies>

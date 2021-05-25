@@ -8,7 +8,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-
 	<groupId>com.territory</groupId>
 	<artifactId>works-webs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -27,16 +26,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.territory</groupId>
-			<artifactId>works-services</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.territory</groupId>
-			<artifactId>works-daos</artifactId>
 		</dependency>
 
 
@@ -86,9 +75,14 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.boot</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.territory</groupId>
-			<artifactId>works-common</artifactId>
+			<artifactId>works-client</artifactId>
 		</dependency>
 	</dependencies>
 

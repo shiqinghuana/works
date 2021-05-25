@@ -1,15 +1,16 @@
 package com.territory.workswebs;
 
-import org.mybatis.spring.annotation.MapperScan;
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
+@EnableDubbo
 @SpringBootApplication
-@ComponentScan("com.territory")
-@MapperScan("com.territory.worksdaos.mapper")
-@EnableTransactionManagement
+// @ComponentScan("com.territory")
+
+// @EnableTransactionManagement
 public class WorksWebsApplication {
 
 	public static void main(String[] args) {

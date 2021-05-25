@@ -1,7 +1,7 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.ApprovalPersonnel;
-import com.territory.worksdaos.entity.ApprovalPersonnelExample;
+import com.territory.client.entity.ApprovalPersonnel;
+import com.territory.client.entity.ApprovalPersonnelExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

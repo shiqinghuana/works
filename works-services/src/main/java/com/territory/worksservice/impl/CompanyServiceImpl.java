@@ -1,19 +1,21 @@
 package com.territory.worksservice.impl;
 
 import com.alibaba.druid.util.StringUtils;
+import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSONObject;
-import com.territory.workscommon.vo.company.CompanyQueryRes;
-import com.territory.worksdaos.entity.Company;
-import com.territory.worksdaos.entity.CompanyBackInfo;
-import com.territory.worksdaos.entity.CompanyBackInfoExample;
-import com.territory.worksdaos.entity.CompanyExample;
+;
+import com.territory.client.entity.Company;
+import com.territory.client.entity.CompanyBackInfo;
+import com.territory.client.entity.CompanyBackInfoExample;
+import com.territory.client.entity.CompanyExample;
+import com.territory.client.impl.CompanyService;
+import com.territory.client.vo.company.CompanyQueryRes;
 import com.territory.worksdaos.mapper.CompanyBackInfoMapper;
 import com.territory.worksdaos.mapper.CompanyMapper;
-import com.territory.worksservice.CompanyService;
+
 import com.territory.worksservice.exception.BusinessException;
 import com.territory.worksservice.exception.code.BaseResponseCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,8 +24,8 @@ import java.util.List;
 
 
 @Transactional
-@Service
-public class CompanyServiceImpl extends BaseService implements CompanyService  {
+@Service(timeout = 10000,interfaceClass = CompanyService.class)
+public class CompanyServiceImpl extends BaseService implements CompanyService {
 
     final CompanyMapper companyMapper;
 

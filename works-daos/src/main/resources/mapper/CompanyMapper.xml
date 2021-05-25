@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.territory.worksdaos.mapper.CompanyMapper">
-  <resultMap id="BaseResultMap" type="com.territory.worksdaos.entity.Company">
+  <resultMap id="BaseResultMap" type="com.territory.client.entity.Company">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="company_addr" jdbcType="VARCHAR" property="companyAddr" />
@@ -78,7 +78,7 @@
     id, company_name, company_addr, company_phone, mark, `type`, updata_time, insert_time, 
     `delete`, column_12, column_11, column_10, file_list
   </sql>
-  <select id="selectByExample" parameterType="com.territory.worksdaos.entity.CompanyExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.territory.client.entity.CompanyExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -106,13 +106,13 @@
     delete from works_company
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.territory.worksdaos.entity.CompanyExample">
+  <delete id="deleteByExample" parameterType="com.territory.client.entity.CompanyExample">
     delete from works_company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.territory.worksdaos.entity.Company">
+  <insert id="insert" parameterType="com.territory.client.entity.Company">
 
     insert into works_company (id, company_name, company_addr, 
       company_phone, mark, `type`, 
@@ -128,7 +128,7 @@
       select last_insert_id()
     </selectKey>
   </insert>
-  <insert id="insertSelective" parameterType="com.territory.worksdaos.entity.Company" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.territory.client.entity.Company" useGeneratedKeys="true" keyProperty="id">
 
     insert into works_company
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -215,7 +215,7 @@
     </trim>
 
   </insert>
-  <select id="countByExample" parameterType="com.territory.worksdaos.entity.CompanyExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.territory.client.entity.CompanyExample" resultType="java.lang.Long">
     select count(*) from works_company
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -287,7 +287,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.territory.worksdaos.entity.Company">
+  <update id="updateByPrimaryKeySelective" parameterType="com.territory.client.entity.Company">
     update works_company
     <set>
       <if test="companyName != null">
@@ -329,7 +329,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.territory.worksdaos.entity.Company">
+  <update id="updateByPrimaryKey" parameterType="com.territory.client.entity.Company">
     update works_company
     set company_name = #{companyName,jdbcType=VARCHAR},
       company_addr = #{companyAddr,jdbcType=VARCHAR},

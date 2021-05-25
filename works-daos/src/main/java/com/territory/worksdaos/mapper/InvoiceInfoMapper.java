@@ -1,7 +1,7 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.InvoiceInfo;
-import com.territory.worksdaos.entity.InvoiceInfoExample;
+import com.territory.client.entity.InvoiceInfo;
+import com.territory.client.entity.InvoiceInfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

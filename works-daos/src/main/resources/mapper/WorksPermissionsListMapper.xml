@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.territory.worksdaos.mapper.WorksPermissionsListMapper">
-  <resultMap id="BaseResultMap" type="com.territory.worksdaos.entity.WorksPermissionsList">
+  <resultMap id="BaseResultMap" type="com.territory.client.entity.WorksPermissionsList">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="permissions_code" jdbcType="INTEGER" property="permissionsCode" />
     <result column="permissions_name" jdbcType="INTEGER" property="permissionsName" />
@@ -76,7 +76,7 @@
     id, permissions_code, permissions_name, mark, `delete`, updata_time, insert_time, 
     column_12, column_11, column_10, column_9
   </sql>
-  <select id="selectByExample" parameterType="com.territory.worksdaos.entity.WorksPermissionsListExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.territory.client.entity.WorksPermissionsListExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -101,13 +101,13 @@
     delete from works_permissions_list
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.territory.worksdaos.entity.WorksPermissionsListExample">
+  <delete id="deleteByExample" parameterType="com.territory.client.entity.WorksPermissionsListExample">
     delete from works_permissions_list
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.territory.worksdaos.entity.WorksPermissionsList">
+  <insert id="insert" parameterType="com.territory.client.entity.WorksPermissionsList">
     insert into works_permissions_list (id, permissions_code, permissions_name, 
       mark, `delete`, updata_time, 
       insert_time, column_12, column_11, 
@@ -117,7 +117,7 @@
       #{insertTime,jdbcType=TIMESTAMP}, #{column12,jdbcType=INTEGER}, #{column11,jdbcType=INTEGER}, 
       #{column10,jdbcType=INTEGER}, #{column9,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.territory.worksdaos.entity.WorksPermissionsList">
+  <insert id="insertSelective" parameterType="com.territory.client.entity.WorksPermissionsList">
     insert into works_permissions_list
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -190,7 +190,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.territory.worksdaos.entity.WorksPermissionsListExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.territory.client.entity.WorksPermissionsListExample" resultType="java.lang.Long">
     select count(*) from works_permissions_list
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -254,7 +254,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.territory.worksdaos.entity.WorksPermissionsList">
+  <update id="updateByPrimaryKeySelective" parameterType="com.territory.client.entity.WorksPermissionsList">
     update works_permissions_list
     <set>
       <if test="permissionsCode != null">
@@ -290,7 +290,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.territory.worksdaos.entity.WorksPermissionsList">
+  <update id="updateByPrimaryKey" parameterType="com.territory.client.entity.WorksPermissionsList">
     update works_permissions_list
     set permissions_code = #{permissionsCode,jdbcType=INTEGER},
       permissions_name = #{permissionsName,jdbcType=INTEGER},

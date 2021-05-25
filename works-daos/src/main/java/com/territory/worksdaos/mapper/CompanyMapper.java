@@ -1,9 +1,11 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.Company;
-import com.territory.worksdaos.entity.CompanyExample;
-import java.util.List;
+
+import com.territory.client.entity.Company;
+import com.territory.client.entity.CompanyExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CompanyMapper {
     long countByExample(CompanyExample example);

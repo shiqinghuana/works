@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.territory.worksdaos.mapper.WorksContractMapper">
-  <resultMap id="BaseResultMap" type="com.territory.worksdaos.entity.WorksContract">
+  <resultMap id="BaseResultMap" type="com.territory.client.entity.WorksContract">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="contract_name" jdbcType="VARCHAR" property="contractName" />
     <result column="contract_code" jdbcType="VARCHAR" property="contractCode" />
@@ -84,7 +84,7 @@
     contract_attachment, signing_data, signing_money, invoice, cost_department, updata_time, 
     insert_time, `delete`, column_12, column_11, column_10, column_9
   </sql>
-  <select id="selectByExample" parameterType="com.territory.worksdaos.entity.WorksContractExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.territory.client.entity.WorksContractExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -109,13 +109,13 @@
     delete from works_contract
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.territory.worksdaos.entity.WorksContractExample">
+  <delete id="deleteByExample" parameterType="com.territory.client.entity.WorksContractExample">
     delete from works_contract
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.territory.worksdaos.entity.WorksContract">
+  <insert id="insert" parameterType="com.territory.client.entity.WorksContract">
     insert into works_contract (id, contract_name, contract_code, 
       ourself_company, other_company, contract_mark, 
       contract_attachment, signing_data, signing_money, 
@@ -131,7 +131,7 @@
       #{column11,jdbcType=INTEGER}, #{column10,jdbcType=INTEGER}, #{column9,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.territory.worksdaos.entity.WorksContract">
+  <insert id="insertSelective" parameterType="com.territory.client.entity.WorksContract">
     insert into works_contract
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -246,7 +246,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.territory.worksdaos.entity.WorksContractExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.territory.client.entity.WorksContractExample" resultType="java.lang.Long">
     select count(*) from works_contract
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -338,7 +338,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.territory.worksdaos.entity.WorksContract">
+  <update id="updateByPrimaryKeySelective" parameterType="com.territory.client.entity.WorksContract">
     update works_contract
     <set>
       <if test="contractName != null">
@@ -395,7 +395,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.territory.worksdaos.entity.WorksContract">
+  <update id="updateByPrimaryKey" parameterType="com.territory.client.entity.WorksContract">
     update works_contract
     set contract_name = #{contractName,jdbcType=VARCHAR},
       contract_code = #{contractCode,jdbcType=VARCHAR},

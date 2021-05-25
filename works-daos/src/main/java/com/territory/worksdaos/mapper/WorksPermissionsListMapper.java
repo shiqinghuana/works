@@ -1,7 +1,7 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.WorksPermissionsList;
-import com.territory.worksdaos.entity.WorksPermissionsListExample;
+import com.territory.client.entity.WorksPermissionsList;
+import com.territory.client.entity.WorksPermissionsListExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

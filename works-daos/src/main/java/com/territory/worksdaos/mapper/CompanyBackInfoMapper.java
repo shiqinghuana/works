@@ -1,7 +1,7 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.CompanyBackInfo;
-import com.territory.worksdaos.entity.CompanyBackInfoExample;
+import com.territory.client.entity.CompanyBackInfo;
+import com.territory.client.entity.CompanyBackInfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
 //package com.territory.workswebs.controller;
 //
 //
-//import com.territory.worksdaos.entity.WorksUsers;
+//import com.territory.client.entity.WorksUsers;
 //import com.territory.worksdaos.mapper.WorksUsersMapper;
 //import com.territory.worksservice.exception.BusinessException;
 //import com.territory.worksservice.exception.code.BaseResponseCode;

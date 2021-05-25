@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="works-web" />
+        <module name="works-service" />
+        <module name="works-webs" />
+        <module name="works-client" />
+        <module name="works-daos" />
+        <module name="works-common" />
+        <module name="works-services" />
+        <module name="works-dao" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="works" target="1.8" />
+      <module name="works-client" target="1.8" />
+      <module name="works-common" target="1.8" />
+      <module name="works-dao" target="1.5" />
+      <module name="works-daos" target="1.8" />
+      <module name="works-service" target="1.8" />
+      <module name="works-services" target="1.8" />
+      <module name="works-web" target="1.8" />
+      <module name="works-webs" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="works" options="-parameters" />
+      <module name="works-client" options="-parameters" />
+      <module name="works-common" options="-parameters" />
+      <module name="works-dao" options="-parameters" />
+      <module name="works-daos" options="-parameters" />
+      <module name="works-service" options="-parameters" />
+      <module name="works-services" options="-parameters" />
+      <module name="works-web" options="-parameters" />
+      <module name="works-webs" options="-parameters" />
+    </option>
+  </component>
+</project>

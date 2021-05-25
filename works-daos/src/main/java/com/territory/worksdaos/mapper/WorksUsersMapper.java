@@ -1,10 +1,9 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.WorksUsers;
-import com.territory.worksdaos.entity.WorksUsersExample;
+import com.territory.client.entity.WorksUsers;
+import com.territory.client.entity.WorksUsersExample;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 

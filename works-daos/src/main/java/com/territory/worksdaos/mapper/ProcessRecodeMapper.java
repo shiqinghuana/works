@@ -1,7 +1,7 @@
 package com.territory.worksdaos.mapper;
 
-import com.territory.worksdaos.entity.ProcessRecode;
-import com.territory.worksdaos.entity.ProcessRecodeExample;
+import com.territory.client.entity.ProcessRecode;
+import com.territory.client.entity.ProcessRecodeExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
